@@ -20,7 +20,7 @@ if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 // 	ini_set('display_errors', '1');
 // 	ini_set('error_reporting', E_ALL);
 
-define('CFCT_EXTRAS_VERSION', '3.4');
+define('CFCT_EXTRAS_VERSION', '3.5');
 
 // Path to Carrington Core parent directory (usually the theme).
 if (!defined('CFCT_PATH')) {

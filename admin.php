@@ -50,20 +50,6 @@ function cfct_admin_bar() {
 add_action('wp_before_admin_bar_render', 'cfct_admin_bar');
 
 /**
- * Deprecated in favor of WP Core Settings API
-**/
-function cfct_admin_request_handler() {
-	_deprecated_function(__FUNCTION__, '3.2');
-}
-
-/**
- * Deprecated in favor of WP Core Settings API
-**/
-function cfct_update_settings() {
-	_deprecated_function(__FUNCTION__, '3.2');
-}
-
-/**
  * Register Theme Settings screen options using WP Settings API
  */ 
 function cfct_register_options() {

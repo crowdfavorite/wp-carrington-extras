@@ -1,0 +1,6 @@
+# Carrington Extras Changelog
+
+## Initial Release (3.5)
+
+- Moved non templating functions from (Carrington Core 3.4)[https://github.com/crowdfavorite/wp-carrington-core] into this library
+- Added the ability to simply add image and multi image select in the theme settings.

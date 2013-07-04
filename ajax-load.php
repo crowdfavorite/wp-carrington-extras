@@ -17,6 +17,14 @@
 
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 
+
+function cfct_ajax_init() {
+	if (cfct_get_option('ajax_load') == 'yes') {
+		cfct_ajax_load();
+	}
+}
+add_action('cfct_ajax_init', 'init');
+
 /**
  * Add markup to a post for AJAX display of post content
  * 

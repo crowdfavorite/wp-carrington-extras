@@ -1,1 +1,1 @@
-README.txt
+Carrington Extras provides a number of features that were initially built into (Carrington Core)[git@github.com:crowdfavorite/wp-carrington-core.git]. This includes any non templating functions.

@@ -358,7 +358,7 @@ function cfct_image_markup($image_id, $type, $key) {
 }
 
 function cfct_image_select_assets() {
-	$base_url = get_template_directory_uri().'/carrington-core/assets/';
+	$base_url = get_template_directory_uri().'/carrington-extras/assets/';
 	wp_enqueue_media();
 	wp_enqueue_script('jquery-ui-sortable');
 	wp_enqueue_script('cfct-js', $base_url.'script.js', array('jquery', 'jquery-ui-sortable'), CFCT_URL_VERSION);

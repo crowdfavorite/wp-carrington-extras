@@ -1,5 +1,10 @@
 # Carrington Extras Changelog
 
+## 4.1
+
+- Compatability testing with WP 4.1
+- Fixed issue that prevented image select from working properly
+
 ## Initial Release (3.5)
 
 - Moved non templating functions from (Carrington Core 3.4)[https://github.com/crowdfavorite/wp-carrington-core] into this library

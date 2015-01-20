@@ -218,44 +218,44 @@ function cfct_options_blank() {
  * 					  'help' => Help markup for the option.
  * @return void
  */
-function cfct_options_input($args) {
+function cfct_options_input( $args  ) {
 	$type = $args['type'];
 	$value = $args['value'];
 	$name = $args['name'];
-	$id = empty($args['label_for']) ? $args['name'] : $args['label_for'];
-	$class = empty($args['class']) ? '' : ' class="'.esc_attr($args['class']).'"';
+	$id = empty( $args['label_for']  ) ? $args['name'] : $args['label_for'];
+	$class = empty( $args['class']  ) ? '' : ' class="'.esc_attr( $args['class'] ).'"';
 	$html = '';
 
-	switch ($type) {
+	switch ( $type ) {
 		case 'text':
-			$html .= '<input id="'.esc_attr($id).'" name="'.esc_attr($name).'" type="text" value="'.esc_attr($value).'"'.$class.' />';
+			$html .= '<input id="'.esc_attr( $id ).'" name="'.esc_attr( $name ).'" type="text" value="'.esc_attr( $value ).'"'.$class.' />';
 			break;
 		case 'password':
-			$html .= '<input id="'.esc_attr($id).'" name="'.esc_attr($name).'" type="password" value="'.esc_attr($value).'"'.$class.' />';
+			$html .= '<input id="'.esc_attr( $id ).'" name="'.esc_attr( $name ).'" type="password" value="'.esc_attr( $value ).'"'.$class.' />';
 			break;
 		case 'textarea':
-			empty($args['cols']) ? $cols = 60 : $cols = (int) $args['cols'];
-			empty($args['rows']) ? $rows = 5 : $rows = (int) $args['rows'];
-			$html .= '<textarea id="'.esc_attr($id).'" name="'.esc_attr($name).'" cols="'.$cols.'" rows="'.$rows.'"'.$class.'>'.esc_textarea($value).'</textarea>';
+			empty( $args['cols'] ) ? $cols = 60 : $cols = ( int ) $args['cols'];
+			empty( $args['rows'] ) ? $rows = 5 : $rows = ( int ) $args['rows'];
+			$html .= '<textarea id="'.esc_attr( $id ).'" name="'.esc_attr( $name ).'" cols="'.$cols.'" rows="'.$rows.'"'.$class.'>'.esc_textarea( $value ).'</textarea>';
 			break;
 		case 'select':
-			$html .= '<select id="'.esc_attr($id).'" name="'.esc_attr($name).'"'.$class.'>';
+			$html .= '<select id="'.esc_attr( $id ).'" name="'.esc_attr( $name ).'"'.$class.'>';
 			$options = $args['options'];
-			foreach ($options as $opt_value => $opt_label) {
-				$html .= '<option value="'.esc_attr($opt_value).'"'.selected($opt_value, $value, false).'>'.esc_html($opt_label).'</option>';
+			foreach ( $options as $opt_value => $opt_label ) {
+				$html .= '<option value="'.esc_attr( $opt_value ).'"'.selected( $opt_value, $value, false ).'>'.esc_html( $opt_label ).'</option>';
 			}
 			$html .= '</select>';
 			break;
 		case 'radio':
 			$options = $args['options'];
-			if (is_array($options)) {
+			if ( is_array( $options ) ) {
 				$html .= '<ul>';
-				foreach ($options as $opt_value => $opt_label) {
+				foreach ( $options as $opt_value => $opt_label ) {
 					$html .= '
 					<li>
-						<label for="'.esc_attr($name.'-'.$opt_value).'">
-							<input type="radio" name="'.esc_attr($name).'" value="'.esc_attr($opt_value).'" id="'.esc_attr($name.'-'.$opt_value).'"'.checked($opt_value, $value, false).' />
-							'.esc_html($opt_label).'
+						<label for="'.esc_attr( $name.'-'.$opt_value ).'">
+							<input type="radio" name="'.esc_attr( $name ).'" value="'.esc_attr( $opt_value ).'" id="'.esc_attr( $name.'-'.$opt_value ).'"'.checked( $opt_value, $value, false ).' />
+							'.esc_html( $opt_label ).'
 						</label>
 					</li>';
 				}
@@ -264,14 +264,14 @@ function cfct_options_input($args) {
 			break;
 		case 'checkbox':
 			$options = $args['options'];
-			if (is_array($options)) {
+			if ( is_array( $options ) ) {
 				$html .= '<ul>';
-				foreach ($options as $opt_value => $opt_label) {
+				foreach ( $options as $opt_value => $opt_label ) {
 					$html .= '
 					<li>
-						<label for="'.esc_attr($name.'-'.$opt_value).'">
-							<input type="checkbox" name="'.esc_attr($name.'['.$opt_value.']').'" value="'.esc_attr($opt_value).'" id="'.esc_attr($name.'-'.$opt_value).'"'.checked($opt_value, $value[$opt_value], false).' />
-							'.esc_html($opt_label).'
+						<label for="'.esc_attr( $name.'-'.$opt_value ).'">
+							<input type="checkbox" name="'.esc_attr( $name.'['.$opt_value.']' ).'" value="'.esc_attr( $opt_value ).'" id="'.esc_attr( $name.'-'.$opt_value ).'"'.checked( $opt_value, $value[$opt_value], false ).' />
+							'.esc_html( $opt_label ).'
 						</label>
 					</li>';
 				}
@@ -279,25 +279,25 @@ function cfct_options_input($args) {
 			}
 			break;
 		case 'hidden':
-			$html .= '<input id="'.esc_attr($id).'" type="hidden" name="'.esc_attr($name).'" value="'.esc_attr($value).'" class="'.esc_attr($class).'" />';
+			$html .= '<input id="'.esc_attr( $id ).'" type="hidden" name="'.esc_attr( $name ).'" value="'.esc_attr( $value ).'" class="'.esc_attr( $class ).'" />';
 			break;
 		case 'image_select':
 			// Default is multiple
-			$select_type = isset($args['select_type']) ? $args['select_type'] : 'multiple';
-			$button_text = __('Add New Image', 'carrington');
-			$html .= '<ul class="'.esc_attr('cfct-images js-cfct-images-'.$select_type.' js-cfct-images-'.$name).'">';
-			switch ($select_type) {
+			$select_type = isset( $args['select_type'] ) ? $args['select_type'] : 'multiple';
+			$button_text = __( 'Add New Image', 'carrington' );
+			$html .= '<ul class="'.esc_attr( 'cfct-images js-cfct-images-'.$select_type.' js-cfct-images-'.$name ).'">';
+			switch ( $select_type ) {
 				case 'single':
-					if (!empty($value)) {
-						$button_text = __('Update Image', 'carrington');
-						$html .= cfct_image_markup($value, 'single', $name);
+					if ( !empty( $value ) ) {
+						$button_text = __( 'Update Image', 'carrington' );
+						$html .= cfct_image_markup( $value, 'single', $name );
 					}
 					break;
 				case 'multiple':
 				default:
-					if (!empty($value)) {
-						foreach ($value as $image_id) {
-							$html .= cfct_image_markup($image_id, 'multiple', $name);
+					if ( !empty( $value ) ) {
+						foreach ( $value as $image_id ) {
+							$html .= cfct_image_markup( $image_id, 'multiple', $name );
 						}
 					}
 					break;
@@ -306,31 +306,31 @@ function cfct_options_input($args) {
 
 			<div>
 				<div class="clear"></div>
-		  		<input type="button" class="'.esc_attr('button js-cfct-select-image-'.$select_type).'" data-name="'.esc_attr($name).'" value="'.esc_attr($button_text).'" />
+		  		<input type="button" class="'.esc_attr( 'button js-cfct-select-image-'.$select_type ).'" data-name="'.esc_attr( $name ).'" value="'.esc_attr( $button_text ).'" />
 		 	</div>';
 			break;
 		default:
-			$html .= apply_filters('cfct_option_'.$type, $html, $args);
+			$html .= apply_filters( 'cfct_option_'.$type, $html, $args );
 			break;
 	}
-	if (!empty($args['help'])) {
+	if ( !empty( $args['help'] ) ) {
 		$html .= $args['help'];
 	}
 
-	print($html);
+	print( $html );
 }
 
 // AJAX Request handler, returns image markup
 function cfct_add_image_ajax() {
-	if ($_POST['attachment_id']) {
+	if ( $_POST['attachment_id'] ) {
 		$attachment_id = $_POST['attachment_id'];
 		$type = $_POST['type'];
 		$name = $_POST['name'];
-		echo cfct_image_markup($attachment_id, $type, $name);
+		echo cfct_image_markup( $attachment_id, $type, $name );
 	}
 	die();
 }
-add_action('wp_ajax_cfct_add_image_ajax', 'cfct_add_image_ajax');
+add_action( 'wp_ajax_cfct_add_image_ajax', 'cfct_add_image_ajax' );
 
 // Image output in theme options
 function cfct_image_markup($image_id, $type, $key) {

@@ -12,7 +12,7 @@
 // **********************************************************************
 // This program is distributed in the hope that it will be useful, but
 // WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 // **********************************************************************
 
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
@@ -40,7 +40,7 @@ load_theme_textdomain('carrington-extras');
 
 /**
  * Loads header code from Carrington Options
- * 
+ *
 **/
 function cfct_wp_head() {
 	echo cfct_get_option('wp_head');
@@ -49,7 +49,7 @@ add_action('wp_head', 'cfct_wp_head');
 
 /**
  * Loads footer code from Carrington Options
- * 
+ *
 **/
 function cfct_wp_footer() {
 	echo cfct_get_option('wp_footer');
